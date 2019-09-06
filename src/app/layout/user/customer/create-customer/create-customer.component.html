@@ -14,11 +14,11 @@
       </mat-form-field> 
       
       <mat-form-field class="col lg-3">
-        <input matInput type="password" placeholder="Senha" formControlName="senha">
+        <input matInput type="password" placeholder="Senha" formControlName="password">
       </mat-form-field> 
       
       <mat-form-field class="col lg-3">
-        <input matInput type="text" placeholder="CNPJ" formControlName="cnpj">
+        <input matInput type="text" placeholder="CNPJ" formControlName="cnpj" maskcnpj>
       </mat-form-field> 
     </div>
    
@@ -28,11 +28,11 @@
       </mat-form-field>
 
       <mat-form-field class="col lg-3">
-        <input matInput type="text" placeholder="Telefone do responsável" formControlName="responsavel_telefone">
+        <input matInput type="text" placeholder="Telefone do responsável" formControlName="responsavel_telefone" maskfixe>
       </mat-form-field> 
       
       <mat-form-field class="col lg-3">
-        <input matInput type="text" placeholder="Celular responsável" formControlName="responsavel_celular">
+        <input matInput type="text" placeholder="Celular responsável" formControlName="responsavel_celular" maskcell>
       </mat-form-field> 
       
       <mat-form-field class="col lg-3">
@@ -46,11 +46,11 @@
       </mat-form-field>
 
       <mat-form-field class="col lg-3">
-        <input matInput type="text" placeholder="Telefone do segundo responsável" formControlName="responsavel2_telefone">
+        <input matInput type="text" placeholder="Telefone do segundo responsável" formControlName="responsavel2_telefone" maskfixe>
       </mat-form-field> 
       
       <mat-form-field class="col lg-3">
-        <input matInput type="text" placeholder="Celular do segundo responsável" formControlName="responsavel2_celular">
+        <input matInput type="text" placeholder="Celular do segundo responsável" formControlName="responsavel2_celular" maskcell>
       </mat-form-field> 
       
       <mat-form-field class="col lg-3">
@@ -61,32 +61,87 @@
     
     <div class="row">
       <mat-form-field class="col lg-3">
-        <input matInput type="text" placeholder="Valor cliente parecer" formControlName="valor_cliente_parecer">
+        <input matInput type="text" placeholder="Valor cliente parecer" formControlName="valor_cliente_parecer" maskmoney>
       </mat-form-field>
 
       <mat-form-field class="col lg-3">
-        <input matInput type="text" placeholder="Valor fornecedor parecer" formControlName="valor_fornecedor_parecer">
+        <input matInput type="text" placeholder="Valor fornecedor parecer" formControlName="valor_fornecedor_parecer" maskmoney>
       </mat-form-field> 
       
       <mat-form-field class="col lg-3">
-        <input matInput type="text" placeholder="Valor cliente negociado" formControlName="valor_cliente_negociacao">
+        <input matInput type="text" placeholder="Valor cliente negociado" formControlName="valor_cliente_negociacao" maskmoney>
       </mat-form-field> 
       
       <mat-form-field class="col lg-3">
-        <input matInput type="text" placeholder="Valor proposto negociado" formControlName="valor_proposto_negociacao">
+        <input matInput type="text" placeholder="Valor proposto negociado" formControlName="valor_proposto_negociacao" maskmoney>
       </mat-form-field> 
     </div>
 
 
     <div class="row">
       <mat-form-field class="col lg-3">
-        <input matInput type="text" placeholder="Valor negociado negociacao" formControlName="valor_negociado_negociacao">
+        <input matInput type="text" placeholder="Valor negociado negociacao" formControlName="valor_negociado_negociacao" maskmoney>
       </mat-form-field>
 
       <mat-form-field class="col lg-3">
-        <input matInput type="text" placeholder="Valor negociado C" formControlName="valor_negociadoC_negociacao">
+        <input matInput type="text" placeholder="Valor negociado C" formControlName="valor_negociadoC_negociacao" maskmoney>
       </mat-form-field> 
       
+      <mat-form-field class="col lg-3"> 
+          <mat-label>Escolha o País</mat-label>
+          <mat-select formControlName="fk_id_pais" name="ngModel" [(ngModel)]="country_id" (ngModelChange)="changeCountry($event)">
+            <mat-option *ngFor="let country of countries" [value]="country.id">
+              {{ country.pais }}
+            </mat-option>
+          </mat-select> 
+      </mat-form-field> 
+      
+      <mat-form-field class="col lg-3"> 
+          <mat-label>Escolha a Região</mat-label>
+          <mat-select formControlName="fk_id_regiao">
+            <mat-option *ngFor="let region of regions" [value]="region.id">
+              {{ region.regiao }}
+            </mat-option>
+          </mat-select> 
+      </mat-form-field> 
+    </div>
+    
+    
+    <div class="row"> 
+      <mat-form-field class="col lg-3"> 
+          <mat-label>Escolha o Estado</mat-label>
+          <mat-select formControlName="fk_id_estado" name="ngModel" [(ngModel)]="state_id" (ngModelChange)="changeState($event)">
+            <mat-option *ngFor="let state of states" [value]="state.id">
+              {{ state.estado }}
+            </mat-option>
+          </mat-select> 
+      </mat-form-field>  
+     
+      <mat-form-field class="col lg-3"> 
+          <mat-label>Escolha a Cidade</mat-label>
+          <mat-select formControlName="fk_id_cidade" name="ngModel" [(ngModel)]="city_id" (ngModelChange)="changeCity($event)">
+            <mat-option *ngFor="let city of cities" [value]="city.id">
+              {{ city.cidade }}
+            </mat-option>
+          </mat-select> 
+      </mat-form-field>  
+      
+      <mat-form-field class="col lg-3"> 
+          <mat-label>Escolha o Bairro</mat-label>
+          <mat-select formControlName="fk_id_bairro">
+            <mat-option *ngFor="let district of districts" [value]="district.id">
+              {{ district.bairro }}
+            </mat-option>
+          </mat-select> 
+      </mat-form-field>  
+
+      <mat-form-field class="col lg-3">
+          <input matInput type="text" placeholder="Endereço" formControlName="fk_id_logradouro">
+        </mat-form-field> 
+    </div>
+
+   
+    <div class="row">           
       <mat-form-field class="col lg-3">
         <input matInput type="text" placeholder="Complemento" formControlName="complemento_endereco">
       </mat-form-field> 
@@ -96,7 +151,6 @@
       </mat-form-field> 
     </div>
 
-   
 
     <button mat-stroked-button color="primary" [disabled]="!form.valid || block">{{ !canEdit ? 'Cadastrar' : 'Editar' }}</button>
    

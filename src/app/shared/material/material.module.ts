@@ -13,7 +13,9 @@ import {
   MatDialogModule,
   MatFormFieldModule,
   MatSnackBarModule,
-  MatSlideToggleModule
+  MatSlideToggleModule,
+  MatCheckboxModule,
+  MatSelectModule
 } from '@angular/material';
 import { SnackbarService } from '../alerts/snackbar.service';
 
@@ -34,7 +36,9 @@ import { SnackbarService } from '../alerts/snackbar.service';
     MatDialogModule,
     MatFormFieldModule,
     MatSnackBarModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
+    MatCheckboxModule,
+    MatSelectModule
   ], 
   exports: [
     MatToolbarModule,
@@ -49,7 +53,9 @@ import { SnackbarService } from '../alerts/snackbar.service';
     MatDialogModule,
     MatFormFieldModule,
     MatSnackBarModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
+    MatCheckboxModule,
+    MatSelectModule
   ],
   providers: [
     SnackbarService

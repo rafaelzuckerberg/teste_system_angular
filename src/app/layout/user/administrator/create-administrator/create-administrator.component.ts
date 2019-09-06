@@ -32,7 +32,7 @@ export class CreateAdministratorComponent implements OnInit {
     this.form = this.fb.group({
       nome: [this.service.user.nome || '', Validators.required],
       email: [this.service.user.email || '', Validators.required],
-      senha: [''],
+      password: [''],
     });
   }
 
@@ -45,15 +45,15 @@ export class CreateAdministratorComponent implements OnInit {
         .subscribe(res => {
           this.closeDialog();
         })
-    } else {
+    } else {      
       if(this.form.value.senha == '') {
         this.snackbar.message('Campo senha obrigatório');
         this.block = false;
       } else {
         this.service.create(this.form.value)
-        .subscribe(() => {  
-          this.closeDialog();
-        });
+          .subscribe(() => {  
+            this.closeDialog();
+          });
       }
     }    
   }

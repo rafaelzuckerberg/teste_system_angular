@@ -12,11 +12,11 @@ export interface Customer {
  	responsavel2_telefone?: string;
  	responsavel2_celular?: string;
     responsavel2_email?: string;
-    fk_id_pais?: string;
-	fk_id_estado?: string;
-	fk_id_regiao?: string;
-	fk_id_cidade?: string;
-	fk_id_bairro?: string;
+    fk_id_pais?: number;
+	fk_id_estado?: number;
+	fk_id_regiao?: number;
+	fk_id_cidade?: number;
+	fk_id_bairro?: number;
 	fk_id_logradouro?: string;
     numero?: string;
     complemento_endereco?: string;

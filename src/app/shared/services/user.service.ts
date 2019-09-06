@@ -15,41 +15,41 @@ export class UserService {
   constructor(private http: HttpClient) { }
 
   create(user: User) {
-    return this.http.post<User>(environment.api + 'administradores', user)
+    return this.http.post<User>(environment.api + 'dashboard/administradores', user)
   }
 
   getUsers() {
-    return this.http.get<User[]>(environment.api + 'administradores');
+    return this.http.get<User[]>(environment.api + 'dashboard/administradores');
   } 
 
   update(user: User) {
-    return this.http.put<User>(`${environment.api}administradores/${user.id}`, user);
+    return this.http.put<User>(`${environment.api}dashboard/administradores/${user.id}`, user);
   }
 
 
   delete(id: number) {
-    return this.http.delete(`${environment.api}administradores/${id}`);
+    return this.http.delete(`${environment.api}dashboard/administradores/${id}`);
   }
 
 
   // Services Customer
   createCustomer(user: User) {
-    return this.http.post<User>(environment.api + 'clientes', user)
+    return this.http.post<User>(environment.api + 'dashboard/clientes', user)
   }
 
 
   getCustomers() {
-    return this.http.get<User[]>(environment.api + 'clientes');
+    return this.http.get<User[]>(environment.api + 'dashboard/clientes');
   } 
 
 
   updateCustomer(user: User) {
-    return this.http.put<User>(`${environment.api}clientes/${user.id}`, user);
+    return this.http.put<User>(`${environment.api}dashboard/clientes/${user.id}`, user);
   }
 
 
   deleteCustomer(id: number) {
-    return this.http.delete(`${environment.api}clientes/${id}`);
+    return this.http.delete(`${environment.api}dashboard/clientes/${id}`);
   }
 
 

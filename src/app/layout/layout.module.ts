@@ -13,6 +13,10 @@ import { ListCustomerComponent } from './user/customer/list-customer/list-custom
 import { MaterialModule } from '../shared/material/material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'; 
 import { DialogComponent } from './dialog/dialog.component';
+import { MaskCellDirective } from '../shared/directives/mask-cell.directive';
+import { MaskFixeDirective } from '../shared/directives/mask-fixe.directive';
+import { MaskCnpjDirective } from '../shared/directives/mask-cnpj.directive';
+import { MaskMoneyDirective } from '../shared/directives/mask-money.directive';
 
 @NgModule({
     imports: [
@@ -21,7 +25,7 @@ import { DialogComponent } from './dialog/dialog.component';
         TranslateModule,
         MaterialModule,
         FormsModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
     ],
     declarations: [ 
         LayoutComponent,  
@@ -30,7 +34,12 @@ import { DialogComponent } from './dialog/dialog.component';
         ListAdministratorComponent, 
         CreateAdministratorComponent, 
         CreateCustomerComponent, 
-        ListCustomerComponent, DialogComponent, 
+        ListCustomerComponent, 
+        DialogComponent, 
+        MaskCellDirective,
+        MaskFixeDirective,
+        MaskCnpjDirective, 
+        MaskMoneyDirective 
     ],
     entryComponents: [
         CreateAdministratorComponent,

@@ -51,7 +51,7 @@ export class ListCustomerComponent implements OnInit {
     this.service.user = Object.assign({}, user);
     this.service.customer = Object.assign({}, user);
     let dialogRef = this.dialog.open(CreateCustomerComponent, {
-      height: '600px',
+      height: '725px',
       width: '1200px',
     });
     dialogRef.afterClosed()
